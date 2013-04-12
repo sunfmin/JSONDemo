@@ -10,6 +10,7 @@
 		B58D92E617180E4F004CFB43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58D92E517180E4F004CFB43 /* Foundation.framework */; };
 		B58D92E917180E4F004CFB43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B58D92E817180E4F004CFB43 /* main.m */; };
 		B58D92ED17180E4F004CFB43 /* JSONDemo.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B58D92EC17180E4F004CFB43 /* JSONDemo.1 */; };
+		B58D92F517180E79004CFB43 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = B58D92F417180E79004CFB43 /* Organization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		B58D92E817180E4F004CFB43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B58D92EB17180E4F004CFB43 /* JSONDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSONDemo-Prefix.pch"; sourceTree = "<group>"; };
 		B58D92EC17180E4F004CFB43 /* JSONDemo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = JSONDemo.1; sourceTree = "<group>"; };
+		B58D92F317180E79004CFB43 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
+		B58D92F417180E79004CFB43 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,8 @@
 		B58D92D917180E4F004CFB43 = {
 			isa = PBXGroup;
 			children = (
+				B58D92F317180E79004CFB43 /* Organization.h */,
+				B58D92F417180E79004CFB43 /* Organization.m */,
 				B58D92E717180E4F004CFB43 /* JSONDemo */,
 				B58D92E417180E4F004CFB43 /* Frameworks */,
 				B58D92E317180E4F004CFB43 /* Products */,
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58D92E917180E4F004CFB43 /* main.m in Sources */,
+				B58D92F517180E79004CFB43 /* Organization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
