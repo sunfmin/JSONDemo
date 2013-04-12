@@ -30,12 +30,14 @@ int main(int argc, const char * argv[])
         
         NSError *returnError;
 
-        
-        User * user = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingAllowFragments error:&returnError];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&returnError];
+        User *user = [[User alloc] initWithDictionary:dic];
 
             
         // insert code here...
-        NSLog(@"AAA %@, %@", user.Name, returnError);
+        NSLog(@"name-----%@", user.Name);
+        NSLog(@"address-----%@", user.Org.Address);
+//        NSLog(@"AAA %@, %@", user.Name, returnError);
         
     }
     return 0;

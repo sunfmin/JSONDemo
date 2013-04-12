@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Organization : NSObject
-@property NSString * Address;
+@property (nonatomic, strong) NSString * Address;
+- (id) initWithDictionary:(NSDictionary *)dic;
 @end
 
 @interface User : NSObject
-@property Organization * Org;
-@property NSString * Name;
+@property (nonatomic, strong) Organization * Org;
+@property (nonatomic, strong) NSString * Name;
+
+- (id) initWithDictionary:(NSDictionary *)dic;
 @end
