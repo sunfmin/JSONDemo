@@ -9,9 +9,9 @@
 #import "Organization.h"
 
 @implementation Organization
-
+@synthesize Address;
 @end
 
 @implementation User
-
+@synthesize Name;
 @end
