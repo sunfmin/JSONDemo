@@ -35,6 +35,7 @@
 @synthesize WorkedOrganizations;
 @synthesize FloatNumber;
 @synthesize IntNumber;
+@synthesize Date;
 
 
 -(id)initWithDictionary:(NSDictionary*)dict{
@@ -48,6 +49,7 @@
     self.Phones = [NSArray arrayWithArray:[dict valueForKey:@"Phones"]];
     self.FloatNumber = [NSNumber numberWithFloat:[[dict valueForKey:@"FloatNumber"] floatValue]];
     self.IntNumber = [NSNumber numberWithInt:[[dict valueForKey:@"IntNumber"] intValue]];
+    self.Date = [NSDate dateWithString:[NSString stringWithFormat:@"%@", [dict valueForKey:@"Date"]]];
     NSMutableArray * pworkedOrganizations = [[NSMutableArray alloc] init];
     NSArray * workedOrganizations = [dict valueForKey:@"WorkedOrganizations"];
     for (NSDictionary * d in workedOrganizations) {
@@ -64,13 +66,13 @@
     [dict setValue:Phones forKey:@"Phones"];
     [dict setValue:FloatNumber forKey:@"FloatNumber"];
     [dict setValue:IntNumber forKey:@"IntNumber"];
+    [dict setValue:[NSString stringWithFormat:@"%@", Date] forKey:@"Date"];
     NSMutableArray * workedOrganizations = [[NSMutableArray alloc] init];
     for (Organization * p in WorkedOrganizations) {
         [workedOrganizations addObject:[p dictionary]];
     }
     [dict setValue:workedOrganizations forKey:@"WorkedOrganizations"];
     return dict;
-    
 }
 
 @end

@@ -25,6 +25,7 @@ int main(int argc, const char * argv[])
         newUser.Phones = [NSArray arrayWithObjects:@"Phone1", @"Phone2", nil];
         newUser.FloatNumber = [NSNumber numberWithFloat:0.8889f];
         newUser.IntNumber = [NSNumber numberWithInt:1234];
+        newUser.Date = [NSDate date];
         
         NSError *requestError;
         NSData *input = [NSJSONSerialization dataWithJSONObject:[newUser dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
@@ -51,6 +52,10 @@ int main(int argc, const char * argv[])
         NSLog(@"worked organizations-----%@", o1.Address);
         NSLog(@"floatnumber-------%@", user.FloatNumber);
         NSLog(@"intnumber------%@", user.IntNumber);
+        
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"YYYY-MM-dd HH-mm-ss"]; 
+        NSLog(@"date--------%@", [dateFormatter stringFromDate:user.Date]);
 
         
         

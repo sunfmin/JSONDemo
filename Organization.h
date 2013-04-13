@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray * WorkedOrganizations;
 @property (nonatomic, strong) NSNumber * FloatNumber;
 @property (nonatomic, strong) NSNumber * IntNumber;
+@property (nonatomic, strong) NSDate * Date;
 
 - (id) initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*) dictionary;
