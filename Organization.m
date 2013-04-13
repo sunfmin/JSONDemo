@@ -16,13 +16,13 @@
     if (!self) {
         return nil;
     }
-    [self setAddress:[dict valueForKey:@"Address"]];
+    self.Address = [NSString stringWithFormat:@"%@", [dict valueForKey:@"Address"]];
     return self;
 }
 
 -(NSDictionary*)dictionary{
     NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:self.Address forKey:@"Address"];
+    [dict setValue:Address forKey:@"Address"];
     return dict;
 }
 
@@ -40,25 +40,26 @@
     if (!self) {
         return nil;
     }
-    [self setName:[dict valueForKey:@"Name"]];
+    
+    self.Name = [NSString stringWithFormat:@"%@", [dict valueForKey:@"Name"]];
     self.Org = [[Organization alloc] initWithDictionary:[dict valueForKey:@"Org"]];
-    self.Phones = [dict valueForKey:@"Phones"];
+    self.Phones = [NSArray arrayWithArray:[dict valueForKey:@"Phones"]];
     NSMutableArray * pworkedOrganizations = [[NSMutableArray alloc] init];
     NSArray * workedOrganizations = [dict valueForKey:@"WorkedOrganizations"];
     for (NSDictionary * d in workedOrganizations) {
         [pworkedOrganizations addObject: [[Organization alloc] initWithDictionary:d]];
     }
-    self.WorkedOrganizations = pworkedOrganizations;
+    self.WorkedOrganizations = [NSArray arrayWithArray:pworkedOrganizations];
     return self;
 }
 
 -(NSDictionary*)dictionary{
     NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:self.Name forKey:@"Name"];
-    [dict setValue:[self.Org dictionary] forKey:@"Org"];
-    [dict setValue:self.Phones forKey:@"Phones"];
+    [dict setValue:Name forKey:@"Name"];
+    [dict setValue:[Org dictionary] forKey:@"Org"];
+    [dict setValue:Phones forKey:@"Phones"];
     NSMutableArray * workedOrganizations = [[NSMutableArray alloc] init];
-    for (Organization * p in self.WorkedOrganizations) {
+    for (Organization * p in WorkedOrganizations) {
         [workedOrganizations addObject:[p dictionary]];
     }
     [dict setValue:workedOrganizations forKey:@"WorkedOrganizations"];
