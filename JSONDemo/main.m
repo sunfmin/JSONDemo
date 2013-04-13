@@ -43,7 +43,10 @@ int main(int argc, const char * argv[])
 
         NSLog(@"name-----%@", user.Name);
         NSLog(@"address-----%@", user.Org.Address);
-        
+        NSLog(@"phones-----%@", user.Phones);
+        NSLog(@"worked organizations-----%@", user.WorkedOrganizations);
+        Organization * o1 = user.WorkedOrganizations[0];
+        NSLog(@"worked organizations-----%@", o1.Address);
 
         
         

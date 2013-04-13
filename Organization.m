@@ -42,6 +42,13 @@
     }
     [self setName:[dict valueForKey:@"Name"]];
     self.Org = [[Organization alloc] initWithDictionary:[dict valueForKey:@"Org"]];
+    self.Phones = [dict valueForKey:@"Phones"];
+    NSMutableArray * pworkedOrganizations = [[NSMutableArray alloc] init];
+    NSArray * workedOrganizations = [dict valueForKey:@"WorkedOrganizations"];
+    for (NSDictionary * d in workedOrganizations) {
+        [pworkedOrganizations addObject: [[Organization alloc] initWithDictionary:d]];
+    }
+    self.WorkedOrganizations = pworkedOrganizations;
     return self;
 }
 
