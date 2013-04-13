@@ -11,32 +11,43 @@
 @implementation Organization : NSObject
 @synthesize Address;
 
-- (id) initWithDictionary:(NSDictionary *)dic
-{
+-(id)initWithDictionary:(NSDictionary*)dict{
     self = [super init];
-    
-    if (self) {
-        self.Address = [dic objectForKey:@"Address"];
+    if (!self) {
+        return nil;
     }
-    
+    [self setAddress:[dict valueForKey:@"Address"]];
     return self;
 }
+
+-(NSDictionary*)dictionary{
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.Address forKey:@"Address"];
+    return dict;
+}
+
 @end
 
 @implementation User : NSObject
 @synthesize Org;
 @synthesize Name;
+@synthesize Phones;
 
-- (id) initWithDictionary:(NSDictionary *)dic
-{
+-(id)initWithDictionary:(NSDictionary*)dict{
     self = [super init];
-    
-    if (self) {
-        Organization *_Org = [[Organization alloc] initWithDictionary:[dic objectForKey:@"Org"]];
-        self.Org = _Org;
-        self.Name = [dic objectForKey:@"Name"];
+    if (!self) {
+        return nil;
     }
-    
+    [self setName:[dict valueForKey:@"Name"]];
+    self.Org = [[Organization alloc] initWithDictionary:[dict valueForKey:@"Org"]];
     return self;
 }
+
+-(NSDictionary*)dictionary{
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:self.Name forKey:@"Name"];
+    [dict setValue:[self.Org dictionary] forKey:@"Org"];
+    return dict;
+}
+
 @end

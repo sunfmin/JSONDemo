@@ -10,12 +10,16 @@
 
 @interface Organization : NSObject
 @property (nonatomic, strong) NSString * Address;
+
 - (id) initWithDictionary:(NSDictionary *)dic;
 @end
 
 @interface User : NSObject
 @property (nonatomic, strong) Organization * Org;
 @property (nonatomic, strong) NSString * Name;
+@property (nonatomic, strong) NSArray * Phones;
 
-- (id) initWithDictionary:(NSDictionary *)dic;
+- (id) initWithDictionary:(NSDictionary*)dict;
+- (NSDictionary*) dictionary;
 @end
+

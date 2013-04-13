@@ -24,20 +24,26 @@ int main(int argc, const char * argv[])
 //        NSLog(@"%@", inputString);
         
         
-        NSString *myString = @"{\"Name\": \"Felix\", \"Org\": {\"Address\": \"The Plant\"}}";
+        NSString *myString = @"{\"Name\": \"Felix\", \"Phones\":[\"111\", \"222\"], \"Org\": {\"Address\": \"The Plant\"}}";
         const char *utfString = [myString UTF8String];
         NSData *myData = [NSData dataWithBytes: utfString length: strlen(utfString)];
         
         NSError *returnError;
 
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&returnError];
-        User *user = [[User alloc] initWithDictionary:dic];
 
-            
-        // insert code here...
+        
+        NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingAllowFragments error:&returnError];
+
+        User * user = [[User alloc] initWithDictionary:dict];
+
         NSLog(@"name-----%@", user.Name);
         NSLog(@"address-----%@", user.Org.Address);
-//        NSLog(@"AAA %@, %@", user.Name, returnError);
+        
+        NSError *requestError;
+        NSData *input = [NSJSONSerialization dataWithJSONObject:[user dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
+        NSString *inputString = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", inputString);
+        
         
     }
     return 0;
