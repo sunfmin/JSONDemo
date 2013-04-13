@@ -12,7 +12,7 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        User * newUser = [User alloc];
+        User * newUser = [[User alloc] init];
         newUser.Name = @"Felix";
         Organization * org = [Organization alloc];
         org.Address = @"Address 1";
@@ -23,6 +23,8 @@ int main(int argc, const char * argv[])
         worked2.Address = @"Worked 2";
         newUser.WorkedOrganizations = [NSArray arrayWithObjects:worked1, worked2, nil];
         newUser.Phones = [NSArray arrayWithObjects:@"Phone1", @"Phone2", nil];
+        newUser.FloatNumber = [NSNumber numberWithFloat:0.8889f];
+        newUser.IntNumber = [NSNumber numberWithInt:1234];
         
         NSError *requestError;
         NSData *input = [NSJSONSerialization dataWithJSONObject:[newUser dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
@@ -47,6 +49,8 @@ int main(int argc, const char * argv[])
         NSLog(@"worked organizations-----%@", user.WorkedOrganizations);
         Organization * o1 = user.WorkedOrganizations[0];
         NSLog(@"worked organizations-----%@", o1.Address);
+        NSLog(@"floatnumber-------%@", user.FloatNumber);
+        NSLog(@"intnumber------%@", user.IntNumber);
 
         
         
