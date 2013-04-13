@@ -24,7 +24,7 @@ int main(int argc, const char * argv[])
 //        NSLog(@"%@", inputString);
         
         
-        NSString *myString = @"{\"Name\": \"Felix\", \"Phones\":[\"111\", \"222\"], \"Org\": {\"Address\": \"The Plant\"}}";
+        NSString *myString = @"{\"Name\": \"Felix\", \"Phones\":[\"111\", \"222\"],\"WorkedOrganizations\":[{\"Address\": \"Worked 1\"}, {\"Address\", \"Worked 2\"}], \"Org\": {\"Address\": \"The Plant\"}}";
         const char *utfString = [myString UTF8String];
         NSData *myData = [NSData dataWithBytes: utfString length: strlen(utfString)];
         

@@ -32,6 +32,8 @@
 @synthesize Org;
 @synthesize Name;
 @synthesize Phones;
+@synthesize WorkedOrganizations;
+
 
 -(id)initWithDictionary:(NSDictionary*)dict{
     self = [super init];

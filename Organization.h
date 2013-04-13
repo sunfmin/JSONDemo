@@ -18,6 +18,7 @@
 @property (nonatomic, strong) Organization * Org;
 @property (nonatomic, strong) NSString * Name;
 @property (nonatomic, strong) NSArray * Phones;
+@property (nonatomic, strong) NSArray * WorkedOrganizations;
 
 - (id) initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*) dictionary;
