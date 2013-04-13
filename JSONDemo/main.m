@@ -12,20 +12,25 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-//        User * newUser = [User alloc];
-//        newUser.Name = @"Felix";
-//        Organization * org = [Organization alloc];
-//        org.Address = @"The Plant";
-//        newUser.Org = org;
-//        
-//        NSError *requestError;
-//        NSData *input = [NSJSONSerialization dataWithJSONObject:newUser options:NSJSONWritingPrettyPrinted error:&requestError];
-//        NSString *inputString = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
-//        NSLog(@"%@", inputString);
+        User * newUser = [User alloc];
+        newUser.Name = @"Felix";
+        Organization * org = [Organization alloc];
+        org.Address = @"Address 1";
+        newUser.Org = org;
+        Organization *worked1 = [Organization alloc];
+        worked1.Address = @"Worked 1";
+        Organization *worked2 = [Organization alloc];
+        worked2.Address = @"Worked 2";
+        newUser.WorkedOrganizations = [NSArray arrayWithObjects:worked1, worked2, nil];
+        newUser.Phones = [NSArray arrayWithObjects:@"Phone1", @"Phone2", nil];
         
+        NSError *requestError;
+        NSData *input = [NSJSONSerialization dataWithJSONObject:[newUser dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
+        NSString *inputString = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
         
-        NSString *myString = @"{\"Name\": \"Felix\", \"Phones\":[\"111\", \"222\"],\"WorkedOrganizations\":[{\"Address\": \"Worked 1\"}, {\"Address\", \"Worked 2\"}], \"Org\": {\"Address\": \"The Plant\"}}";
-        const char *utfString = [myString UTF8String];
+        NSLog(@"%@", inputString);
+        
+        const char *utfString = [inputString UTF8String];
         NSData *myData = [NSData dataWithBytes: utfString length: strlen(utfString)];
         
         NSError *returnError;
@@ -39,10 +44,7 @@ int main(int argc, const char * argv[])
         NSLog(@"name-----%@", user.Name);
         NSLog(@"address-----%@", user.Org.Address);
         
-        NSError *requestError;
-        NSData *input = [NSJSONSerialization dataWithJSONObject:[user dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
-        NSString *inputString = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", inputString);
+
         
         
     }

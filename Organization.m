@@ -49,6 +49,12 @@
     NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
     [dict setValue:self.Name forKey:@"Name"];
     [dict setValue:[self.Org dictionary] forKey:@"Org"];
+    [dict setValue:self.Phones forKey:@"Phones"];
+    NSMutableArray * workedOrganizations = [[NSMutableArray alloc] init];
+    for (Organization * p in self.WorkedOrganizations) {
+        [workedOrganizations addObject:[p dictionary]];
+    }
+    [dict setValue:workedOrganizations forKey:@"WorkedOrganizations"];
     return dict;
 }
 
