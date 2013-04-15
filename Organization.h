@@ -19,9 +19,11 @@
 @property (nonatomic, strong) NSString * Name;
 @property (nonatomic, strong) NSArray * Phones;
 @property (nonatomic, strong) NSArray * WorkedOrganizations;
-@property (nonatomic, strong) NSNumber * FloatNumber;
-@property (nonatomic, strong) NSNumber * IntNumber;
-@property (nonatomic, strong) NSDate * Date;
+@property (nonatomic, strong) NSNumber * AverageScore;
+@property (nonatomic, strong) NSNumber * Age;
+@property (nonatomic, strong) NSDate * BirthDate;
+@property (nonatomic,assign) BOOL Male;
+
 
 - (id) initWithDictionary:(NSDictionary*)dict;
 - (NSDictionary*) dictionary;

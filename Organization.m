@@ -33,9 +33,11 @@
 @synthesize Name;
 @synthesize Phones;
 @synthesize WorkedOrganizations;
-@synthesize FloatNumber;
-@synthesize IntNumber;
-@synthesize Date;
+@synthesize AverageScore;
+@synthesize Age;
+@synthesize BirthDate;
+@synthesize Male;
+
 
 
 -(id)initWithDictionary:(NSDictionary*)dict{
@@ -44,12 +46,13 @@
         return nil;
     }
     
-    self.Name = [NSString stringWithFormat:@"%@", [dict valueForKey:@"Name"]];
+    self.Name = [NSString stringWithString:[dict valueForKey:@"Name"]];
     self.Org = [[Organization alloc] initWithDictionary:[dict valueForKey:@"Org"]];
     self.Phones = [NSArray arrayWithArray:[dict valueForKey:@"Phones"]];
-    self.FloatNumber = [NSNumber numberWithFloat:[[dict valueForKey:@"FloatNumber"] floatValue]];
-    self.IntNumber = [NSNumber numberWithInt:[[dict valueForKey:@"IntNumber"] intValue]];
-    self.Date = [NSDate dateWithString:[NSString stringWithFormat:@"%@", [dict valueForKey:@"Date"]]];
+    self.AverageScore = [[dict valueForKey:@"AverageScore"] copy];
+    self.Age = [[dict valueForKey:@"Age"] copy];
+    self.Male = [[dict valueForKey:@"Male"] booleanValue];
+    self.BirthDate = [NSDate dateWithString:[NSString stringWithFormat:@"%@", [dict valueForKey:@"BirthDate"]]];
     NSMutableArray * pworkedOrganizations = [[NSMutableArray alloc] init];
     NSArray * workedOrganizations = [dict valueForKey:@"WorkedOrganizations"];
     for (NSDictionary * d in workedOrganizations) {
@@ -64,9 +67,10 @@
     [dict setValue:Name forKey:@"Name"];
     [dict setValue:[Org dictionary] forKey:@"Org"];
     [dict setValue:Phones forKey:@"Phones"];
-    [dict setValue:FloatNumber forKey:@"FloatNumber"];
-    [dict setValue:IntNumber forKey:@"IntNumber"];
-    [dict setValue:[NSString stringWithFormat:@"%@", Date] forKey:@"Date"];
+    [dict setValue:AverageScore forKey:@"AverageScore"];
+    [dict setValue:Age forKey:@"Age"];
+    [dict setValue:[NSNumber numberWithBool:Male] forKey:@"Male"];
+    [dict setValue:[NSString stringWithFormat:@"%@", BirthDate] forKey:@"BirthDate"];
     NSMutableArray * workedOrganizations = [[NSMutableArray alloc] init];
     for (Organization * p in WorkedOrganizations) {
         [workedOrganizations addObject:[p dictionary]];

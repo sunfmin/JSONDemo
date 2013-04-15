@@ -23,9 +23,10 @@ int main(int argc, const char * argv[])
         worked2.Address = @"Worked 2";
         newUser.WorkedOrganizations = [NSArray arrayWithObjects:worked1, worked2, nil];
         newUser.Phones = [NSArray arrayWithObjects:@"Phone1", @"Phone2", nil];
-        newUser.FloatNumber = [NSNumber numberWithFloat:0.8889f];
-        newUser.IntNumber = [NSNumber numberWithInt:1234];
-        newUser.Date = [NSDate date];
+        newUser.AverageScore = [NSNumber numberWithFloat:0.8889f];
+        newUser.Age = [NSNumber numberWithInt:28];
+        newUser.BirthDate = [NSDate date];
+        newUser.Male = [NSNumber numberWithBool: NO];
         
         NSError *requestError;
         NSData *input = [NSJSONSerialization dataWithJSONObject:[newUser dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
@@ -50,12 +51,13 @@ int main(int argc, const char * argv[])
         NSLog(@"worked organizations-----%@", user.WorkedOrganizations);
         Organization * o1 = user.WorkedOrganizations[0];
         NSLog(@"worked organizations-----%@", o1.Address);
-        NSLog(@"floatnumber-------%@", user.FloatNumber);
-        NSLog(@"intnumber------%@", user.IntNumber);
+        NSLog(@"AverageScore-------%@", user.AverageScore);
+        NSLog(@"Age------%@", user.Age);
         
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"YYYY-MM-dd HH-mm-ss"]; 
-        NSLog(@"date--------%@", [dateFormatter stringFromDate:user.Date]);
+        NSLog(@"date--------%@", [dateFormatter stringFromDate:user.BirthDate]);
+        NSLog(@"date--------%@", user.Male);
 
         
         
