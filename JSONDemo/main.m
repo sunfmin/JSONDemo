@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
         newUser.AverageScore = [NSNumber numberWithFloat:0.8889f];
         newUser.Age = [NSNumber numberWithInt:28];
         newUser.BirthDate = [NSDate date];
-        newUser.Male = [NSNumber numberWithBool: NO];
+        newUser.Male = YES;
         
         NSError *requestError;
         NSData *input = [NSJSONSerialization dataWithJSONObject:[newUser dictionary] options:NSJSONWritingPrettyPrinted error:&requestError];
@@ -57,10 +57,11 @@ int main(int argc, const char * argv[])
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"YYYY-MM-dd HH-mm-ss"]; 
         NSLog(@"date--------%@", [dateFormatter stringFromDate:user.BirthDate]);
-        NSLog(@"date--------%@", user.Male);
-
-        
-        
+        if (user.Male) {
+            NSLog(@"Male is true");
+        } else {
+            NSLog(@"Male is false");
+        }
     }
     return 0;
 }

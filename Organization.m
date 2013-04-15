@@ -51,7 +51,7 @@
     self.Phones = [NSArray arrayWithArray:[dict valueForKey:@"Phones"]];
     self.AverageScore = [[dict valueForKey:@"AverageScore"] copy];
     self.Age = [[dict valueForKey:@"Age"] copy];
-    self.Male = [[dict valueForKey:@"Male"] booleanValue];
+    self.Male = [[dict valueForKey:@"Male"] boolValue];
     self.BirthDate = [NSDate dateWithString:[NSString stringWithFormat:@"%@", [dict valueForKey:@"BirthDate"]]];
     NSMutableArray * pworkedOrganizations = [[NSMutableArray alloc] init];
     NSArray * workedOrganizations = [dict valueForKey:@"WorkedOrganizations"];
